@@ -20,6 +20,7 @@ const slides = [
 
 const leftarrow = document.getElementsByClassName("arrow_left");
 const rightarrow = document.getElementsByClassName("arrow_right");
+const containerdot = document.getElementsByClassName("dots");
 
 leftarrow[0].addEventListener("click", left);
 rightarrow[0].addEventListener("click", right);
@@ -28,10 +29,16 @@ function teste() {
   console.log("click");
 }
 
-function left(){
-	console.log("arrow left");
+function left() {
+  console.log("arrow left");
 }
 
-function right(){
-	console.log("arrow right");
+function right() {
+  console.log("arrow right");
 }
+
+slides.forEach((Element) => {
+  const dot = document.createElement("div");
+  dot.className = "dot";
+  containerdot[0].appendChild(dot);
+});
