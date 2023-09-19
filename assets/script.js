@@ -21,6 +21,8 @@ const slides = [
 const leftarrow = document.getElementsByClassName("arrow_left");
 const rightarrow = document.getElementsByClassName("arrow_right");
 const containerdot = document.getElementsByClassName("dots");
+let currentslide = 0;
+let oldslide = 0;
 
 leftarrow[0].addEventListener("click", left);
 rightarrow[0].addEventListener("click", right);
@@ -31,14 +33,51 @@ function teste() {
 
 function left() {
   console.log("arrow left");
+
+  if (currentslide != 0) {
+    oldslide = currentslide;
+    currentslide--;
+  } else {
+    oldslide = 0;
+    currentslide = slides.length - 1;
+  }
+
+  selecteur();
+
+  console.log(currentslide);
+  console.log(oldslide);
 }
 
 function right() {
   console.log("arrow right");
+
+  if (currentslide != slides.length - 1) {
+    oldslide = currentslide;
+    currentslide++;
+  } else {
+    oldslide++;
+    currentslide = 0;
+  }
+
+  selecteur();
+
+  console.log(currentslide);
+  console.log(oldslide);
 }
 
 slides.forEach((Element) => {
   const dot = document.createElement("div");
-  dot.className = "dot";
+  if (Element == slides[0]) {
+    dot.className = "dot dot_selected";
+  } else {
+    dot.className = "dot";
+  }
+
   containerdot[0].appendChild(dot);
 });
+
+function selecteur() {
+  const element = document.getElementsByClassName("dot");
+  element[currentslide].className = "dot dot_selected";
+  element[oldslide].className = "dot";
+}
