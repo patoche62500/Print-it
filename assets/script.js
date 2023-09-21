@@ -82,4 +82,6 @@ function selecteur() {
   element[oldslide].className = "dot";
   let image = document.querySelector(".banner-img");
   image.src = "./assets/images/slideshow/" + slides[currentslide].image;
+  let texte = document.querySelector("p");
+  texte.innerHTML = slides[currentslide].tagLine;
 }
