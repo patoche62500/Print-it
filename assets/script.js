@@ -80,4 +80,6 @@ function selecteur() {
   const element = document.getElementsByClassName("dot");
   element[currentslide].className = "dot dot_selected";
   element[oldslide].className = "dot";
+  let image = document.querySelector(".banner-img");
+  image.src = "./assets/images/slideshow/" + slides[currentslide].image;
 }
