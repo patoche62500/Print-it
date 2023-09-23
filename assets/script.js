@@ -65,9 +65,9 @@ function right() {
   console.log(oldslide);
 }
 
-slides.forEach((Element) => {
+slides.forEach((element) => {
   const dot = document.createElement("div");
-  if (Element == slides[0]) {
+  if (element == slides[0]) {
     dot.className = "dot dot_selected";
   } else {
     dot.className = "dot";
@@ -81,7 +81,9 @@ function selecteur() {
   element[currentslide].className = "dot dot_selected";
   element[oldslide].className = "dot";
   let image = document.querySelector(".banner-img");
-  image.src = "./assets/images/slideshow/" + slides[currentslide].image;
+
+  image.src = `./assets/images/slideshow/${slides[currentslide].image}`;
+
   let texte = document.querySelector("p");
   texte.innerHTML = slides[currentslide].tagLine;
 }
